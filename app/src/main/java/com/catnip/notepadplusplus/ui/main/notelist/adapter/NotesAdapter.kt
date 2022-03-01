@@ -10,6 +10,7 @@ import com.catnip.notepadplusplus.databinding.ActivityMainBinding.inflate
 import com.catnip.notepadplusplus.databinding.ItemLockedNoteBinding
 import com.catnip.notepadplusplus.databinding.ItemNoteBinding
 import com.catnip.notepadplusplus.utils.CommonFunction
+import com.catnip.notepadplusplus.utils.dpToPixels
 
 /**
 Written with love by Muhammad Hermas Yuda Pamungkas
@@ -100,7 +101,7 @@ class NotesAdapter(private val itemClick: (Note) -> Unit) :
                 binding.tvTitleNote.text = item.title
                 binding.root.background = GradientDrawable().apply {
                     shape = GradientDrawable.RECTANGLE
-                    cornerRadius = CommonFunction.dpToPixels(binding.root.context, 8).toFloat()
+                    cornerRadius = 8.dpToPixels(itemView.context).toFloat()
                     setColor(Color.parseColor(item.hexCardColor))
                     mutate()
                 }
