@@ -31,6 +31,10 @@ class NoteListFragment(private val isArchiveOnly: Boolean = false) :
     override fun initView() {
         setupRecyclerView()
         setupSwipeRefresh()
+    }
+
+    override fun onResume() {
+        super.onResume()
         getData()
     }
 
