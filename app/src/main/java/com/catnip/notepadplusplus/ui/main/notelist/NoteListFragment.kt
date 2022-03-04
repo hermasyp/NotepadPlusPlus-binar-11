@@ -1,5 +1,6 @@
 package com.catnip.notepadplusplus.ui.main.notelist
 
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -11,6 +12,7 @@ import com.catnip.notepadplusplus.data.local.room.NotesDatabase
 import com.catnip.notepadplusplus.data.local.room.datasource.NotesDataSourceImpl
 import com.catnip.notepadplusplus.data.local.room.entity.Note
 import com.catnip.notepadplusplus.databinding.FragmentNoteListBinding
+import com.catnip.notepadplusplus.ui.enterpassword.EnterPasswordBottomSheet
 import com.catnip.notepadplusplus.ui.main.notelist.adapter.NotesAdapter
 import com.catnip.notepadplusplus.utils.CommonFunction
 import com.catnip.notepadplusplus.utils.SpacesItemDecoration
@@ -19,7 +21,7 @@ import com.catnip.notepadplusplus.utils.SpacesItemDecoration
 Written with love by Muhammad Hermas Yuda Pamungkas
 Github : https://github.com/hermasyp
  **/
-class NoteListFragment(private val isArchiveOnly: Boolean) :
+class NoteListFragment(private val isArchiveOnly: Boolean = false) :
     BaseFragment<FragmentNoteListBinding, NoteListViewModel>(FragmentNoteListBinding::inflate),
     NoteListContract.View {
 
@@ -39,7 +41,12 @@ class NoteListFragment(private val isArchiveOnly: Boolean) :
 
     override fun setupRecyclerView() {
         adapter = NotesAdapter {
-            //todo : open detail if unlocked , and open dialog password when locked
+            if (it.isProtected == true) {
+                showDialogPassword(it)
+            } else {
+                //NoteFormActivity.startActivity(context, NoteFormActivity.FORM_MODE_EDIT, note)
+                //todo : navigate to note form
+            }
         }
         getViewBinding().rvNotes.apply {
             layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
@@ -68,8 +75,18 @@ class NoteListFragment(private val isArchiveOnly: Boolean) :
     }
 
     override fun showDialogPassword(note: Note) {
-        TODO("Not yet implemented")
+        EnterPasswordBottomSheet { isPasswordConfirmed ->
+            if (isPasswordConfirmed) {
+                //NoteFormActivity.startActivity(context, NoteFormActivity.FORM_MODE_EDIT, note)
+                //todo : navigate to note form
+            } else {
+                Toast.makeText(context, getString(R.string.text_wrong_password), Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }.show(childFragmentManager, null)
     }
+
+
 
     override fun showLoading(isLoading: Boolean) {
         super.showLoading(isLoading)
@@ -82,7 +99,6 @@ class NoteListFragment(private val isArchiveOnly: Boolean) :
     }
 
     override fun showError(isErrorEnabled: Boolean, msg: String?) {
-        super.showError(isErrorEnabled, msg)
         getViewBinding().layoutScenario.tvMessage.isVisible = isErrorEnabled
         getViewBinding().layoutScenario.tvMessage.text = msg
     }
