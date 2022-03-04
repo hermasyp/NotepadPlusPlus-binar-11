@@ -14,6 +14,7 @@ import com.catnip.notepadplusplus.data.local.room.entity.Note
 import com.catnip.notepadplusplus.databinding.FragmentNoteListBinding
 import com.catnip.notepadplusplus.ui.enterpassword.EnterPasswordBottomSheet
 import com.catnip.notepadplusplus.ui.main.notelist.adapter.NotesAdapter
+import com.catnip.notepadplusplus.ui.noteform.NoteFormActivity
 import com.catnip.notepadplusplus.utils.CommonFunction
 import com.catnip.notepadplusplus.utils.SpacesItemDecoration
 
@@ -44,8 +45,7 @@ class NoteListFragment(private val isArchiveOnly: Boolean = false) :
             if (it.isProtected == true) {
                 showDialogPassword(it)
             } else {
-                //NoteFormActivity.startActivity(context, NoteFormActivity.FORM_MODE_EDIT, note)
-                //todo : navigate to note form
+                NoteFormActivity.startActivity(context, NoteFormActivity.FORM_MODE_EDIT, it)
             }
         }
         getViewBinding().rvNotes.apply {
@@ -77,8 +77,7 @@ class NoteListFragment(private val isArchiveOnly: Boolean = false) :
     override fun showDialogPassword(note: Note) {
         EnterPasswordBottomSheet { isPasswordConfirmed ->
             if (isPasswordConfirmed) {
-                //NoteFormActivity.startActivity(context, NoteFormActivity.FORM_MODE_EDIT, note)
-                //todo : navigate to note form
+                NoteFormActivity.startActivity(context, NoteFormActivity.FORM_MODE_EDIT, note)
             } else {
                 Toast.makeText(context, getString(R.string.text_wrong_password), Toast.LENGTH_SHORT)
                     .show()

@@ -31,4 +31,10 @@
     <string name="text_menu_change_password">Change Password</string>
     <string name="text_wrong_password">Wrong password</string>
     <string name="text_success_set_password">Password has been set</string>
+    <string name="insert_success">Insert data Success!</string>
+    <string name="insert_failed">Insert data Failed !</string>
+    <string name="delete_success">Delete Success</string>
+    <string name="delete_failed">Delete Failed !</string>
+    <string name="update_success">Update Success</string>
+    <string name="update_failed">Update Failed</string>
 </resources>

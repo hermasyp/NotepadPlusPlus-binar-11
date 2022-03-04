@@ -13,6 +13,7 @@ import com.catnip.notepadplusplus.databinding.ActivityMainBinding
 import com.catnip.notepadplusplus.ui.changepassword.ChangePasswordBottomSheet
 import com.catnip.notepadplusplus.ui.enterpassword.EnterPasswordBottomSheet
 import com.catnip.notepadplusplus.ui.main.notelist.NoteListFragment
+import com.catnip.notepadplusplus.ui.noteform.NoteFormActivity
 
 class MainActivity :
     BaseActivity<ActivityMainBinding, MainActivityViewModel>(ActivityMainBinding::inflate),
@@ -30,7 +31,7 @@ class MainActivity :
     override fun initView() {
         setupFragment()
         getViewBinding().fab.setOnClickListener {
-           //todo : navigate to form
+            NoteFormActivity.startActivity(this, NoteFormActivity.FORM_MODE_INSERT)
         }
     }
 

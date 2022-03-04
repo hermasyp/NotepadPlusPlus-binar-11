@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Work Project/Binar/Android Wave 11/Chapter 4/Example/NotepadPlusPlus/app/src/main/res/drawable-v24/ic_add_notes.xml" value="0.343" />
         <entry key="..\:/Work Project/Binar/Android Wave 11/Chapter 4/Example/NotepadPlusPlus/app/src/main/res/layout/activity_main.xml" value="0.340625" />
+        <entry key="..\:/Work Project/Binar/Android Wave 11/Chapter 4/Example/NotepadPlusPlus/app/src/main/res/layout/activity_note_form.xml" value="0.33" />
         <entry key="..\:/Work Project/Binar/Android Wave 11/Chapter 4/Example/NotepadPlusPlus/app/src/main/res/layout/component_scenario_layout.xml" value="0.3546875" />
+        <entry key="..\:/Work Project/Binar/Android Wave 11/Chapter 4/Example/NotepadPlusPlus/app/src/main/res/layout/fragment_enter_password_bottom_sheet.xml" value="0.3546875" />
         <entry key="..\:/Work Project/Binar/Android Wave 11/Chapter 4/Example/NotepadPlusPlus/app/src/main/res/layout/fragment_note_list.xml" value="0.3546875" />
         <entry key="..\:/Work Project/Binar/Android Wave 11/Chapter 4/Example/NotepadPlusPlus/app/src/main/res/layout/fragment_note_list2.xml" value="0.3546875" />
         <entry key="..\:/Work Project/Binar/Android Wave 11/Chapter 4/Example/NotepadPlusPlus/app/src/main/res/layout/item_locked_note.xml" value="0.3546875" />
