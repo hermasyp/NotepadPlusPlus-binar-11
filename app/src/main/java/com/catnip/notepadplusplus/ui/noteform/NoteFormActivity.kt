@@ -62,6 +62,7 @@ class NoteFormActivity :
     }
 
     override fun initView() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         getIntentData()
         initializeForm()
         setClickListeners()
